@@ -23,5 +23,7 @@
     "cordova-plugin-geolocation",
     "uk.co.workingedge.phonegap.plugin.launchnavigator"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

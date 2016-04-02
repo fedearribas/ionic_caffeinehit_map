@@ -1,6 +1,11 @@
 var app = angular.module('caffeinehit.controllers', []);
 
 app.controller("YelpController", function ($scope, YelpService) {
+
+	$scope.$on('mapInitialized', function (event, map) {
+		$scope.map = map;
+	});
+
 	$scope.yelp = YelpService;
 
 	$scope.doRefresh = function () {
@@ -32,6 +37,12 @@ app.controller("YelpController", function ($scope, YelpService) {
 			$scope.yelp.lon
 		];
 
-		launchnavigator.navigate(destination, source);
+		launchnavigator.navigate(destination, source);		
 	};
+
+	$scope.showCafeDetail = function(event, cafe) {
+		$scope.yelp.cafe = cafe;
+		$scope.map.showInfoWindow.apply(this, [event, 'marker-info']);
+	}
+
 });
